@@ -4,8 +4,15 @@
 ###
 
 :start
-echo Hello world!
-sleep 10
+echo Speedy 2
+echo +----- NETBOOT ----------------------------------------------
+echo |hostname: ${hostname}, next-server: ${next-server}
+echo |mac.....: ${net0/mac} / 
+echo +------------------------------------------------------------
+echo .
+kernel http://speedy.goip.org.uk/netboot/linux root=/dev/ram0 load_ramdisk=1 initrd=initrd showopts ramdisk_size=65535  install=http://speedy.goip.org.uk/iso textmode=1 autoyast=http://speedy.goip.org.uk/baremetal.php?MAC=00:16:3c:94:e1:e9
+initrd http://speedy.goip.org.uk/initrd
+boot || 
 goto custom_exit
 
 :custom_exit
