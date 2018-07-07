@@ -4,16 +4,17 @@
 ###
 
 :start
-echo Speedy 2
-echo +----- NETBOOT ----------------------------------------------
-echo |hostname: ${hostname}, next-server: ${next-server}
-echo |mac.....: ${net0/mac} / 
-echo +------------------------------------------------------------
-echo .
-kernel http://speedy.goip.org.uk/netboot/linux initrd=initrd.gz preseed/url=http://speedy.goip.org.uk/netboot/preseed.cfg showopts textmode=1 
-imgfetch http://speedy.goip.org.uk/netboot/initrd.gz 
-boot || 
-goto custom_exit
+chain http://speedy.goip.org.uk/netboot/install.ipxe
+#echo Speedy 2
+#echo +----- NETBOOT ----------------------------------------------
+#echo |hostname: ${hostname}, next-server: ${next-server}
+#echo |mac.....: ${net0/mac} / 
+#echo +------------------------------------------------------------
+#echo .
+#kernel http://speedy.goip.org.uk/netboot/linux initrd=initrd.gz preseed/url=http://speedy.goip.org.uk/netboot/preseed.cfg showopts textmode=1 
+#imgfetch http://speedy.goip.org.uk/netboot/initrd.gz 
+#boot || 
+#goto custom_exit
 
 :custom_exit
 exit 0
