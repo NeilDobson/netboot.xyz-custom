@@ -10,7 +10,7 @@ echo |hostname: ${hostname}, next-server: ${next-server}
 echo |mac.....: ${net0/mac} / 
 echo +------------------------------------------------------------
 echo .
-kernel http://speedy.goip.org.uk/netboot/linux root=/dev/ram0 load_ramdisk=1 preseed/url=http://speedy.goip.org.uk/netboot/preseed.cfg showopts ramdisk_size=65535  textmode=1 
+kernel http://speedy.goip.org.uk/netboot/linux root=/dev/ram0 load_ramdisk=1 initrd=initrd preseed/url=http://speedy.goip.org.uk/netboot/preseed.cfg showopts ramdisk_size=65535  textmode=1 
 initrd=http://speedy.goip.org.uk/netboot/initrd.gz 
 boot || 
 goto custom_exit
